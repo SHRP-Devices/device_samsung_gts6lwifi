@@ -59,11 +59,11 @@ BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
 TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/Image-dtb
 BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/recovery_dtbo
 BOARD_INCLUDE_RECOVERY_DTBO := true
-BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x02000000 --tags_offset 0x01e00000 --header_version 1 --board SRPSD11A001
-BOARD_KERNEL_CMDLINE := console=null androidboot.hardware=qcom androidboot.memcg=1 lpm_levels.sleep_disabled=1 video=vfb:640x400,bpp=32,memsize=3072000 msm_rtb.filter=0x237 service_locator.enable=1 swiotlb=2048 firmware_class.path=/vendor/firmware androidboot.usbcontroller=a600000.dwc3
+BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x02000000 --tags_offset 0x01e00000 --header_version 1 --board FRPSC27A001
+BOARD_KERNEL_CMDLINE := console=null androidboot.hardware=qcom androidboot.memcg=1 lpm_levels.sleep_disabled=1 lpm_levels.sleep_disabled=1 video=vfb:640x400,bpp=32,memsize=3072000 msm_rtb.filter=0x237 service_locator.enable=1 swiotlb=2048 androidboot.usbcontroller=a600000.dwc3 firmware_class.path=/vendor/firmware_mnt/image
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_KERNEL_BASE := 0x00000000
-BOARD_KERNEL_TAGS_OFFSET := 0x01e00000
+BOARD_KERNEL_TAGS_OFFSET := 0x01E00000
 BOARD_RAMDISK_OFFSET := 0x02000000
 
 # Platform
@@ -98,21 +98,23 @@ TARGET_RECOVERY_QCOM_RTC_FIX := true
 TARGET_RECOVERY_PIXEL_FORMAT := "BGRA_8888"
 TW_BRIGHTNESS_PATH := "/sys/class/backlight/panel0-backlight/brightness"
 TW_MAX_BRIGHTNESS := 255
-TW_DEFAULT_BRIGHTNESS := 153
+TW_DEFAULT_BRIGHTNESS := 120
 TW_NO_REBOOT_BOOTLOADER := true
 TW_HAS_DOWNLOAD_MODE := true
 TW_INCLUDE_NTFS_3G := true
 TW_EXCLUDE_SUPERSU := true
+TW_EXCLUDE_TWRPAPP := true
 TW_EXTRA_LANGUAGES := true
 TW_USE_NEW_MINADBD := true
 TW_USE_TOOLBOX := true
+TW_USE_NEW_MINADBD := true
 TW_EXCLUDE_TWRPAPP := true
 TW_INPUT_BLACKLIST := "hbtp_vm"
 TW_EXCLUDE_DEFAULT_USB_INIT := true
 TW_FORCE_USE_BUSYBOX := true
 PLATFORM_VERSION := 10
 PLATFORM_SECURITY_PATCH := 2020-05-01
-TW_DEVICE_VERSION := 14
+TW_DEVICE_VERSION := 15
 
 #SHRP_Variables
 BUILD_SHRP_REC := true
@@ -126,7 +128,7 @@ SHRP_OTG := /usb_otg
 SHRP_FLASH := 0
 SHRP_REC := /dev/block/platform/soc/1d84000.ufshc/by-name/recovery
 SHRP_AB := false
-SHRP_REC_TYPE := SAR
+SHRP_REC_TYPE := Treble
 SHRP_DEVICE_TYPE := A_Only
 SHRP_EXPRESS := true
 SHRP_OFFICIAL := true
